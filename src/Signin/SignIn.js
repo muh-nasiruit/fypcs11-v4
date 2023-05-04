@@ -112,10 +112,8 @@ const SignIn = () => {
                     <input type="button" name="" value="Login" onClick={() => {login()}}/>
                 </div>
                 <div className={classes["back-to-signup"]}>
-                {/* <a href="/">Back to Main</a> */}
-                {/* <a href="../signup">Create an Account</a> */}
-                <Button variant="link" onClick={()=>navigate("/")}>Back to Main</Button> 
-                <Button variant="link" onClick={()=>navigate("/signup")}>Create an Account</Button> 
+                {/* <Button variant="link" onClick={()=>navigate("/")}>Back to Main</Button> 
+                <Button variant="link" onClick={()=>navigate("/signup")}>Create an Account</Button>  */}
                 </div>
             </form>
         </div>
