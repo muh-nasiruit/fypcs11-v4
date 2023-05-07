@@ -10,7 +10,7 @@ import { useFormik } from 'formik';
 import { SignupValidationSchema } from "../Validations/Validations";
 // import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+
 
 const ErrorToast = (msg) => {
     toast.error(msg);
@@ -114,7 +114,7 @@ const SignIn = () => {
                 <div className={classes["back-to-signup"]}>
                 {/* <Button variant="link" onClick={()=>navigate("/")}>Back to Main</Button> 
                 <Button variant="link" onClick={()=>navigate("/signup")}>Create an Account</Button>  */}
-                </div>
+                </div> 
             </form>
         </div>
     </div>

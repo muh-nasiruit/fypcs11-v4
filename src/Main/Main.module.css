@@ -95,3 +95,16 @@ button{
     padding: 15px;
     margin-top: 62px;
 }
+.login-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 33px;
+}
+.login-btn input{
+    color: #fff;
+    background-color: #001880c2;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    width: 357px;
+}
