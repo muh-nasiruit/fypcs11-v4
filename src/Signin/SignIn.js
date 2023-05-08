@@ -1,13 +1,13 @@
 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import { useFormik } from 'formik';
+import { SignupValidationSchema } from "../Validations/Validations";
+import axios from 'axios';
 import classes from './SignIn.module.css';
 import img1 from "../assets/add-user.png";
 import img2 from "../../src/assets/show.png";
 import React from 'react';
-import axios from 'axios';
-import { useFormik } from 'formik';
-import { SignupValidationSchema } from "../Validations/Validations";
 // import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -29,9 +29,6 @@ const SignIn = () => {
         validationSchema: SignupValidationSchema
     })
     
-    // useEffect(() => {
-    //     formik.setFieldValue("userName", "")
-    // }, [])
     const login = () => {
         const myUrl = 'http://172.104.174.187:4000/api/login';    
         // const  myUrl = 'http://localhost:4000/api/login'
@@ -40,11 +37,8 @@ const SignIn = () => {
             loginUser: formik?.values.userName,
             loginPass: formik?.values.passWord
         }
-        // console.log()
-
         axios.post(myUrl, data)
         .then(function (response) {       
-            // const userDetail = response.data;
             console.log(response.data);
             if (formik.values.userName === "" || formik.values.passWord ==="") {
                 ErrorToast("Please enter Username and Password");
@@ -52,13 +46,10 @@ const SignIn = () => {
             else if (formik.values.userName === "admin" && formik.values.passWord === "admin") {
                 console.log("admin");
                 successToast();
-                // window.open("../dashboard","_self");
                 navigate("/dashboard");  
             }
             else if (response.data) {
-                // console.log(response.data);
                 successToast();
-                // window.open("../dashboard","_self");
                 navigate("/dashboard");  
             }
             else if (response.data === false) {
@@ -112,8 +103,6 @@ const SignIn = () => {
                     <input type="button" name="" value="Login" onClick={() => {login()}}/>
                 </div>
                 <div className={classes["back-to-signup"]}>
-                {/* <Button variant="link" onClick={()=>navigate("/")}>Back to Main</Button> 
-                <Button variant="link" onClick={()=>navigate("/signup")}>Create an Account</Button>  */}
                 </div> 
             </form>
         </div>
