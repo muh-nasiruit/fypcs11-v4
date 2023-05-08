@@ -5,8 +5,9 @@
 }
 .main-container{
     font-family: Helvetica, sans-serif;
-    background: url('../../assets/net-bg.jpg') no-repeat center fixed;
+    background: url('../assets/net-bg.jpg') no-repeat center fixed;
     background-size: cover ;
+    padding: 20px;
 }
 .card-body img{
     height: 233px;
@@ -15,6 +16,7 @@
     display: grid;
     grid-template-columns:repeat(auto-fit,minmax(12rem,16rem));
     gap:2rem;
+    margin-left: 200px;
     justify-content: center;
 }
 .card{

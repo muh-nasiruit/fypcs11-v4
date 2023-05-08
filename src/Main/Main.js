@@ -71,8 +71,8 @@ const Main = () => {
         ) 
     }
     return (
-        <div className={MainCss["banner"]}>
-            <div className={MainCss["navbar"]}>
+        <div className={MainCss.banner}>
+            <div className={MainCss.navbar}>
                 <span>DRAW STACK</span>
                 <ul>
                     <li>
@@ -83,8 +83,8 @@ const Main = () => {
                     </li>
                 </ul>
             </div>
-            <div className={MainCss["content"]}>
-                <h1>Log Analysis using ELK Stack Implementation</h1>
+            <div className={MainCss.content}>
+                <h1>Log Analytics using ELK Stack Implementation</h1>
                 <div className={MainCss["our-card-container"]}>
                     <div className={MainCss["our-card"]}>
                         <h2>Sign In</h2>

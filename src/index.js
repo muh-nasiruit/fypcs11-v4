@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Dashboard from "./Dashboard/Dashboard";
 import Main from "./Main/Main"
-import Overview from "./Sidebar/Overview/Overview";
+import Connectors from "./Connectors/Connectors";
 import SignUp from "./Signup/SignUp";
 import {
   createBrowserRouter,
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
     element: <Dashboard/>,
   },
   {
-    path: "/overview",
-    element: <Overview/>,
+    path: "/connectors",
+    element: <Connectors/>,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

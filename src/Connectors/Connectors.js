@@ -1,16 +1,18 @@
 import React from 'react';
-import mongoImg from '../../assets/mongo.png';
-import oracleImg from '../../assets/oracle.jpg';
-import windowsImg from '../../assets/windows.jpg';
-import linuxImg from '../../assets/linux.jpg';
-import sqlImg from '../../assets/sql.png';
-import './Overview.css'
+import mongoImg from '../assets/mongo.png';
+import oracleImg from '../assets/oracle.jpg';
+import windowsImg from '../assets/windows.jpg';
+import linuxImg from '../assets/linux.jpg';
+import sqlImg from '../assets/sql.png';
+import ConnectorsCSS from './Connectors.module.css'
+import Sidebar from '../Sidebar/Sidebar';
 
-function Overview() {
+function Connectors() {
   return (
     <>
-    <div className="main-container">
-        <div className="wrapper">
+    <div className={ConnectorsCSS["main-container"]}>
+        <Sidebar />
+        <div className={ConnectorsCSS.wrapper}>
             <Card
             Img = {mongoImg}
             title = "Mongo DB Details"
@@ -53,20 +55,20 @@ function Overview() {
 }
 function Card(props){
     return(
-    <div className="card">
-    <div className="card-body">
-        <img src={props.Img} alt="" className="card-img"/>
-        <h2 className="card-title"> 
+    <div className={ConnectorsCSS.card}>
+    <div className={ConnectorsCSS["card-body"]}>
+        <img src={props.Img} alt="" className={ConnectorsCSS["card-img"]}/>
+        <h2 className={ConnectorsCSS["card-title"]}> 
             {props.title}
             {/* Mongo DB Details */}
         </h2>
-        <p className="card-description">
+        <p className={ConnectorsCSS["card-description"]}>
             {props.description}
             {/* Here you can view the logs of mongodb , click here for more description */}
         </p>
     </div>
-    <a className="card-btn" href ={props.links}>{props.btn}</a>
+    <a className={ConnectorsCSS["card-btn"]} href ={props.links}>{props.btn}</a>
 </div> 
     )
 }
-export default Overview
+export default Connectors
