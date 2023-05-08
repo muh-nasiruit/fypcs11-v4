@@ -58,6 +58,9 @@ const Main = () => {
                 navigate("/dashboard");  
             }
             else if (response.data) {
+                if(response.data.check){
+                    localStorage.setItem('currentUserName',formik?.values.userName)
+                }
                 successToast();
                 navigate("/dashboard");  
             }
@@ -117,7 +120,6 @@ const Main = () => {
                                     <Form.Label>Password</Form.Label>
                                      <Form.Control
                                         placeholder="Enter password"
-                                        autoFocus
                                         type="password" 
                                         id="passWord" 
                                         name="passWord"

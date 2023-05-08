@@ -2,8 +2,7 @@ import React from 'react';
 import SidebarCSS from './Sidebar.module.css';
 import { useNavigate } from "react-router-dom";
 
-
-const Sidebar = ()=> {
+const Sidebar = (props)=> {
     const navigate = useNavigate();
 
 
@@ -111,12 +110,12 @@ return(
             </li> */}
         </ul>
         <div className={SidebarCSS.profile}>
-            <a href="#">
+            {/* <a href="#">
                 <img src="../Coffee Shop/Images/coffee10-removebg-preview.png" alt=""/>
-            </a>
+            </a> */}
             <div>
-                <h5>John Doe</h5>
-                <small>johndoe@gmail.com</small>
+        <h5>{props.username}</h5>
+                {/* <small>johndoe@gmail.com</small> */}
             </div>
             <span className="material-icons-outlined">
                 verified_user

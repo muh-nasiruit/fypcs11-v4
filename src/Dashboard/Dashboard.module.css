@@ -9,3 +9,33 @@
 *{
     box-sizing: border-box;
 }
+
+.heading-user-name {
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+}
+.heading-user-name span {
+    border-bottom: 3px solid #009688;
+}
+
+.springy-text {
+    color: orange;
+    animation-name: springy-text;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
+  @keyframes springy-text {
+    0%   {
+      letter-spacing: 1.2em;
+      color: orange;
+    }
+    100%   {
+      letter-spacing: 0.1em;
+      color: white;
+    }
+  }
