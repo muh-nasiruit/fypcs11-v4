@@ -14,6 +14,13 @@ function Connectors() {
         <Sidebar />
         <div className={ConnectorsCSS.wrapper}>
             <Card
+            Img = {sqlImg}
+            title = "MySQL Details"
+            description = "Here you can view the logs of MySQL , click here for more description"
+            btn = "Connect to MySQL"
+            links = "http://mysqllog.draw-string.com"
+            />
+            <Card
             Img = {mongoImg}
             title = "Mongo DB Details"
             description = "Here you can view the logs of mongodb , click here for more description"
@@ -26,13 +33,6 @@ function Connectors() {
             description = "Here you can view the logs of Oracle , click here for more description"
             btn = "Connect to Oracle"
             links = "http://oraclelog.draw-string.com"
-            />
-            <Card
-            Img = {sqlImg}
-            title = "MySQL Details"
-            description = "Here you can view the logs of MySQL , click here for more description"
-            btn = "Connect to MySQL"
-            links = "http://mysqllog.draw-string.com"
             />
             <Card
             Img = {linuxImg}
