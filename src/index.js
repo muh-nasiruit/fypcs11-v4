@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import Dashboard from "./Dashboard/Dashboard";
 import Main from "./Main/Main"
 import Overview from "./Sidebar/Overview/Overview";
-import SignIn from "./Signin/SignIn";
 import SignUp from "./Signup/SignUp";
 import {
   createBrowserRouter,
@@ -16,10 +15,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main/>,
-  },
-  {
-    path: "/login",
-    element: <SignIn/>,
   },
   {
     path: "/signup",

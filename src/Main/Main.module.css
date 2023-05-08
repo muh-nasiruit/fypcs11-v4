@@ -108,3 +108,7 @@ button{
     border-radius: 6px;
     width: 357px;
 }
+.error-message{
+    color: red;
+    font-size: 13px;
+}
