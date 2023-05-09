@@ -9,7 +9,8 @@
     background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('../../src/assets/graph_bg.jpg');
     background-size: cover;
 }
-.navbar{
+
+    .navbar{
     width: 85%;
     margin: auto;
     padding: 35px 0;
@@ -62,13 +63,11 @@
 .content h1{
     font-size: 70px;
     margin-top: 80px;
-
 }
 .content p{
    margin : 20px auto;
    font-weight: 100;
-   line-height: 25px;
-    
+   line-height: 25px;   
 }
 button{
     width: 200px;
@@ -93,8 +92,10 @@ button{
     border: 1px solid #009688;
     border-radius: 7px;
     padding: 15px;
+    width: 500px;
     margin-top: 62px;
 }
+
 .login-btn{
     display: flex;
     justify-content: center;
@@ -107,6 +108,21 @@ button{
     border: none;
     border-radius: 6px;
     width: 357px;
+}
+
+#newTitle{
+    margin-left: 40%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+a{
+    font-size: 14px;
+}
+
+.tosignup{
+    float: right;
+    margin-top: 10px
 }
 .error-message{
     color: red;

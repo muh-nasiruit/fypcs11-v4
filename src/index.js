@@ -4,12 +4,13 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Dashboard from "./Dashboard/Dashboard";
 import Main from "./Main/Main"
-import Overview from "./Sidebar/Overview/Overview";
+import Connectors from "./Connectors/Connectors";
 import SignUp from "./Signup/SignUp";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import DataArchiving from './Data-Archiving/DataArchiving';
 
 const router = createBrowserRouter([
   {
@@ -20,25 +21,17 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <SignUp/>,
   },
-  // {
-  //   path: "/users",
-  //   element: <Users/>,
-  // },
-  // {
-  //   path: "/data-analysis",
-  //   element: <DataAnalysis/>,
-  // },
-  // {
-  //   path: "/data-management",
-  //   element: <DataManagement/>,
-  // },
     {
     path: "/dashboard",
     element: <Dashboard/>,
   },
   {
-    path: "/overview",
-    element: <Overview/>,
+    path: "/connectors",
+    element: <Connectors/>,
+  },
+  {
+    path: "/data-archiving",
+    element: <DataArchiving/>,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

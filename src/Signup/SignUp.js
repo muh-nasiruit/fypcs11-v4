@@ -1,5 +1,5 @@
 import React from 'react';
-import './Signup.css';
+import SignupCSS from './Signup.module.css';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import graphImg from '../assets/graph-bg.png'
@@ -44,20 +44,20 @@ const SignUp = () => {
     };
     return (
       <section>
-            <div class="imgBx">
+            <div className={SignupCSS.imgBx}>
                 <img src={graphImg} alt=""/>
             </div>
-            <div className="contentBx">
-            <div class="formBx">
+            <div className={SignupCSS.contentBx}>
+            <div className={SignupCSS.formBx}>
                 <h2>Sign up</h2>
             </div>
             <form action="">
-                <div class="inputBx">
+                <div className={SignupCSS.inputBx}>
                     <span>Username</span>
                     <input type="text"
                     />
                 </div>
-                <div class="inputBx">
+                <div className={SignupCSS.inputBx}>
                     <span>Email</span>
                     <input type="email"
                      id="email"
@@ -67,23 +67,23 @@ const SignUp = () => {
                      onBlur={formik.handleBlur}
                     />
                      {formik.touched.email && formik.errors.email ? (
-                            <span className="error-message">{formik.errors.email}</span>
+                            <span className={SignupCSS["error-message"]}>{formik.errors.email}</span>
                         ) : null}
                 </div>
-                <div class="inputBx">
+                <div className={SignupCSS.inputBx}>
                     <span>Password</span>
                     <input type="password"/>
                 </div>
-                <div class="inputBx">
+                <div className={SignupCSS.inputBx}>
                     <span>Confirm Password</span>
                     <input type="password"/>
                 </div>
-                <div class="inputBx">
+                <div className={SignupCSS.inputBx}>
                     <input type="button" value="Sign up"
-                    onClick={() => signUp()}
+                    onClick={() => signUp(navigate("/"))}
                     />
                 </div>  
-                <div className="back-to-main">
+                <div className={SignupCSS["back-to-main"]}>
                     <Button variant="link" onClick={()=>navigate("/")}>Back to Main</Button> 
                     </div>
             </form>
