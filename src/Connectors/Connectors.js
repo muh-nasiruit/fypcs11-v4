@@ -6,6 +6,7 @@ import linuxImg from '../assets/linux.jpg';
 import sqlImg from '../assets/sql.png';
 import ConnectorsCSS from './Connectors.module.css'
 import Sidebar from '../Sidebar/Sidebar';
+import iFrame from 'react-iframe'
 import { useEffect, useState } from 'react';
 
 function Connectors() {
@@ -74,6 +75,15 @@ function Card(props){
         </p>
     </div>
     <a className={ConnectorsCSS["card-btn"]} href ={props.links}>{props.btn}</a>
+    {/* <a className={ConnectorsCSS["card-btn"]}> 
+    <iFrame url="http://mysqllog.draw-string.com"
+        width="640px"
+        height="320px"
+        id=""
+        className=""
+        display="block"
+        position="relative"/>
+    </a> */}
 </div> 
     )
 }
