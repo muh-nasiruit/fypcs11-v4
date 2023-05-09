@@ -16,7 +16,7 @@ const Dashboard = () => {
         <div className={DashboardCSS["heading-user-name"]}>
            <span className={DashboardCSS["springy-text"]}>Welcome {userName} </span>
         </div>
-        <Sidebar username={userName} />
+        <Sidebar username={userName}/>
     </div>
     </>
     )

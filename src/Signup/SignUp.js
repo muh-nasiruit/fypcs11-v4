@@ -80,7 +80,7 @@ const SignUp = () => {
                 </div>
                 <div className={SignupCSS.inputBx}>
                     <input type="button" value="Sign up"
-                    onClick={() => signUp()}
+                    onClick={() => signUp(navigate("/"))}
                     />
                 </div>  
                 <div className={SignupCSS["back-to-main"]}>
