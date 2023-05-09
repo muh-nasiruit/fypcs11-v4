@@ -30,7 +30,7 @@ return(
                 </a>
             </li>
             <li>
-                <a href="#" >
+                <a href="#" onClick={() => navigate("/data-archiving")}>
                     <span className="material-icons-outlined">
                         storage
                     </span>

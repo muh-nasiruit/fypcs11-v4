@@ -10,6 +10,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import DataArchiving from './Data-Archiving/DataArchiving';
 
 const router = createBrowserRouter([
   {
@@ -20,18 +21,6 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <SignUp/>,
   },
-  // {
-  //   path: "/users",
-  //   element: <Users/>,
-  // },
-  // {
-  //   path: "/data-analysis",
-  //   element: <DataAnalysis/>,
-  // },
-  // {
-  //   path: "/data-management",
-  //   element: <DataManagement/>,
-  // },
     {
     path: "/dashboard",
     element: <Dashboard/>,
@@ -39,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/connectors",
     element: <Connectors/>,
+  },
+  {
+    path: "/data-archiving",
+    element: <DataArchiving/>,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
