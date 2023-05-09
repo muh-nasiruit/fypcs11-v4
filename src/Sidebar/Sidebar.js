@@ -1,6 +1,7 @@
 import React from 'react';
 import SidebarCSS from './Sidebar.module.css';
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 const Sidebar = (props)=> {
     const navigate = useNavigate();
@@ -109,18 +110,21 @@ return(
                 </a>
             </li> */}
         </ul>
+        <hr />
         <div className={SidebarCSS.profile}>
             {/* <a href="#">
                 <img src="../Coffee Shop/Images/coffee10-removebg-preview.png" alt=""/>
             </a> */}
-            <div>
         <h5>{props.username}</h5>
                 {/* <small>johndoe@gmail.com</small> */}
-            </div>
             <span className="material-icons-outlined">
                 verified_user
             </span>
         </div>
+        <Button className={SidebarCSS["logout-btn"]} variant="primary" onClick={() => navigate("/")}>
+            End Session
+        </Button>
+
 </div>
 </nav>
 </div>

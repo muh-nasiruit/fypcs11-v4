@@ -6,12 +6,18 @@ import linuxImg from '../assets/linux.jpg';
 import sqlImg from '../assets/sql.png';
 import ConnectorsCSS from './Connectors.module.css'
 import Sidebar from '../Sidebar/Sidebar';
+import { useEffect, useState } from 'react';
 
 function Connectors() {
+    const [userName, setUserName] = useState('');
+    useEffect(()=>{
+        const userName = localStorage.getItem('currentUserName');
+        setUserName(userName);
+    },[])
   return (
     <>
     <div className={ConnectorsCSS["main-container"]}>
-        <Sidebar />
+        <Sidebar username={userName}/>
         <div className={ConnectorsCSS.wrapper}>
             <Card
             Img = {sqlImg}
@@ -22,7 +28,7 @@ function Connectors() {
             />
             <Card
             Img = {mongoImg}
-            title = "Mongo DB Details"
+            title = "MongoDB Details"
             description = "Here you can view the logs of mongodb , click here for more description"
             btn = "Connect to MongoDB"
             links = "http://mongodblog.draw-string.com"

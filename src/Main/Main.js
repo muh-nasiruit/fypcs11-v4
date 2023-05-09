@@ -91,15 +91,17 @@ const Main = () => {
                 <div className={MainCss["our-card-container"]}>
                     <div className={MainCss["our-card"]}>
                         <h2>Sign In</h2>
-                        <p>Do Sign in First , Login to access the dashboard.</p>
+                        <p>Login to access the dashboard.</p>
                         <button id="signin-btn" type="button" className="btn btn-outline-primary" onClick={handleShow}
                         >Sign In</button>
                     </div>
                     {/* sigin modal */}
                     <Modal show={show} onHide={handleClose}>
+                        {/* <div className={MainCss.header}> */}
                         <Modal.Header closeButton>
-                            <Modal.Title>SIGN IN</Modal.Title>
+                            <Modal.Title id={MainCss.newTitle}>Sign In</Modal.Title>
                         </Modal.Header>
+                        {/* </div> */}
                         <Modal.Body>
                             <Form>
                                 <Form.Group className="mb-3">
@@ -133,14 +135,17 @@ const Main = () => {
                                     <div className={MainCss["login-btn"]}>
                                     <input type="button" name="" value="Login" onClick={() => {login()}}/>
                                     </div>
+                                    <div className={MainCss.tosignup}>
+                                    <a href="/signup"> Don't have an account? </a>
+                                    </div>
                                 </Form.Group>
                             </Form>
                         </Modal.Body>
                     </Modal>
                     <div className={MainCss["our-card"]}>
                         <h2>Sign Up</h2>
-                        <p>Don't have an account ? Sign up to view the project.</p>
-                        <button id="signup-btn" type="button" className="btn btn-outline-secondary" onClick={signUpBtn}>Sign Up</button>
+                        <p>Don't have an account ? Sign up first.</p>
+                        <button id="signup-btn" type="button" className="btn btn-outline-primary" onClick={signUpBtn}>Sign Up</button>
                     </div>
                 </div>
             </div>
