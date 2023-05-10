@@ -20,18 +20,26 @@ function UsersHistory() {
     const payLoad = {
         id : user_id
     }
+
+    const runAPI = () => {
+        const myUrl = 'http://172.104.174.187:4000/api/get-history';
+        // const myUrl = 'http://localhost:4054/api/linux-logs';
+        axios.post(myUrl, payLoad)
+            .then((response) => {
+                setRes(response.data)
+                setLoading(false);
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    };
     
     useEffect(() => {
         return () => {
-            const url = 'http://172.104.174.187:4000/api/get-history';
-              axios.post(url, payLoad)
-              .then(function(response){
-                  setRes(response.data)
-                  console.log(response)
-                  setLoading(false);
-                })
-
+            runAPI();
         }
+
      }, []); // Only run once, when the component mounts
     
   return (
