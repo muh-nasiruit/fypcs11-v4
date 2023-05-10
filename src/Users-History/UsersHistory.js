@@ -40,7 +40,7 @@ function UsersHistory() {
             runAPI();
         }
 
-     }, []); // Only run once, when the component mounts
+     }); // Only run once, when the component mounts
     
   return (
     <div className="main-container">
