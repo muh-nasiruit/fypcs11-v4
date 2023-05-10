@@ -1,0 +1,19 @@
+.main-container{
+    font-family: Helvetica, sans-serif;
+    background: url('../assets/net-bg.jpg') no-repeat center fixed;
+    background-size: cover ;
+    padding: 20px;
+    height: 100vh;
+}
+
+.threat-heading{
+    display: flex;
+    margin-top: 55px;
+}
+.threat-heading span{
+    color:#fff;
+    font-size: 55px;
+    border-bottom: 3px solid #009688;
+    justify-content:start ;
+    margin-left: 230px;
+}

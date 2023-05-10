@@ -5,8 +5,10 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table'
 import axios from 'axios';
 import Loader from '../Loader/Loader';
+import { useNavigate } from "react-router-dom";
 
 function UsersHistory() {
+    const navigate = useNavigate();
     const [isLoading, setLoading] = useState(true);
     const [res, setRes] = useState([])
     const userId_string = localStorage.getItem('currentUserId');
@@ -32,6 +34,11 @@ function UsersHistory() {
 
   return (
     <div className="main-container">
+    <div className="heading-user-name">
+           <span className="springy-text" onClick={() => navigate('/users-history')}>
+            Welcome {userName} 
+            </span>
+    </div>
             <Sidebar username={userName}
             email = {email}
             />

@@ -41,7 +41,7 @@ return(
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" onClick={() => navigate("/threat-analysis")}>
                     <span className="material-icons-outlined">
                         analytics
                     </span>

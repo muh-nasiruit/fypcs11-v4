@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import DataArchiving from './Data-Archiving/DataArchiving';
 import UsersHistory from  './Users-History/UsersHistory';
+import ThreatAnalysis from  './Threat-Analysis/ThreatAnalysis';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/users-history",
     element: <UsersHistory/>,
+  },
+  {
+    path: "/threat-analysis",
+    element: <ThreatAnalysis/>,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
