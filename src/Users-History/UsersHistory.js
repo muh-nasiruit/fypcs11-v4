@@ -22,13 +22,16 @@ function UsersHistory() {
     }
     
     useEffect(() => {
-    const url = 'http://172.104.174.187:4000/api/get-history';
-      axios.post(url, payLoad)
-      .then(function(response){
-          setRes(response.data)
-          console.log(response)
-          setLoading(false);
-     })
+        return () => {
+            const url = 'http://172.104.174.187:4000/api/get-history';
+              axios.post(url, payLoad)
+              .then(function(response){
+                  setRes(response.data)
+                  console.log(response)
+                  setLoading(false);
+                })
+
+        }
      }, []); // Only run once, when the component mounts
     
   return (
