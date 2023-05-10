@@ -7,11 +7,21 @@ import axios from 'axios';
 import Loader from '../Loader/Loader';
 import { useNavigate } from "react-router-dom";
 
+const navigate = useNavigate();
+
 function UsersHistory() {
-    const navigate = useNavigate();
     const [isLoading, setLoading] = useState(true);
     const [res, setRes] = useState([])
+    const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    
+    
+    const userName = localStorage.getItem('currentUserName');
+    const email = localStorage.getItem('currentUserEmail');
     const userId_string = localStorage.getItem('currentUserId');
+    setUserName(userName);
+    setEmail(email);
+    
     const user_id = JSON.parse(userId_string);
     const payLoad = {
         id : user_id
@@ -23,14 +33,6 @@ function UsersHistory() {
             console.log(response)
             setLoading(false);
         })
-    const [userName, setUserName] = useState('');
-    const [email, setEmail] = useState('');
-    useEffect(()=>{
-        const userName = localStorage.getItem('currentUserName');
-        setUserName(userName);
-        const email = localStorage.getItem('currentUserEmail');
-        setEmail(email);
-    },[])
 
   return (
     <div className="main-container">
