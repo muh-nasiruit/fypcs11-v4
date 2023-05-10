@@ -7,9 +7,8 @@ import axios from 'axios';
 import Loader from '../Loader/Loader';
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
-
 function UsersHistory() {
+    const navigate = useNavigate();
     const [isLoading, setLoading] = useState(true);
     const [res, setRes] = useState([])
     const [userName, setUserName] = useState('');
