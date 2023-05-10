@@ -26,8 +26,8 @@ function UsersHistory() {
         // const myUrl = 'http://localhost:4054/api/linux-logs';
         axios.post(myUrl, payLoad)
             .then((response) => {
-                setRes(response.data)
                 setLoading(false);
+                setRes(response.data)
                 console.log(response.data)
             })
             .catch((error) => {
