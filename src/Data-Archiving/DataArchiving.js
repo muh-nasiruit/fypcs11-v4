@@ -73,8 +73,8 @@ function DataArchiving() {
                     <Form.Select aria-label="Default select example" onChange={changeSelectOptionHandler}>
                         <option>Select Data Source</option>
                         <option value="MySQL">MySQL</option>
-                        <option value="MongoDB">MongoDB</option>
-                        <option value="Oracle">Oracle</option>
+                        <option value="mongodb">MongoDB</option>
+                        <option value="oracle">Oracle</option>
                         <hr/>
                         <option value="4">Linux</option>
                         <option value="windows">Windows</option>
