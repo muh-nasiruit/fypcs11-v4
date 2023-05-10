@@ -11,32 +11,24 @@ function UsersHistory() {
     const navigate = useNavigate();
     const [isLoading, setLoading] = useState(true);
     const [res, setRes] = useState([])
-    const [userName, setUserName] = useState('');
-    const [email, setEmail] = useState('');
     
-    
-    const uName = localStorage.getItem('currentUserName');
-    const uMail = localStorage.getItem('currentUserEmail');
+    const userName = localStorage.getItem('currentUserName');
+    const email = localStorage.getItem('currentUserEmail');
     const userId_string = localStorage.getItem('currentUserId');
-    setUserName(uName);
-    setEmail(uMail);
     
     const user_id = JSON.parse(userId_string);
     const payLoad = {
         id : user_id
     }
-    if (res.length === 0) {
-      const url = 'http://172.104.174.187:4000/api/get-history';
+
+    const url = 'http://172.104.174.187:4000/api/get-history';
       axios.post(url, payLoad)
       .then(function(response){
           setRes(response.data)
           console.log(response)
           setLoading(false);
-      })
-    }
-
-
-
+     })
+    
   return (
     <div className="main-container">
     <div className="heading-user-name">
