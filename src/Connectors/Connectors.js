@@ -6,19 +6,42 @@ import linuxImg from '../assets/linux.jpg';
 import sqlImg from '../assets/sql.png';
 import ConnectorsCSS from './Connectors.module.css'
 import Sidebar from '../Sidebar/Sidebar';
+import { useNavigate } from "react-router-dom";
 import iFrame from 'react-iframe'
 import { useEffect, useState } from 'react';
 
 function Connectors() {
+    const navigate = useNavigate();
     const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
     useEffect(()=>{
         const userName = localStorage.getItem('currentUserName');
         setUserName(userName);
+        const email = localStorage.getItem('currentUserEmail');
+        setEmail(email);
     },[])
+
+    // const Greetings = () => {
+    //     const [userName, setUserName] = useState('');
+    //     useEffect(()=>{
+    //         const userName = localStorage.getItem('currentUserName');
+    //         setUserName(userName);
+    //     },[])
+
   return (
     <>
     <div className={ConnectorsCSS["main-container"]}>
-        <Sidebar username={userName}/>
+    <div className={ConnectorsCSS["heading-user-name"]}>
+           <span className={ConnectorsCSS["springy-text"]} onClick={() => navigate('/users-history')}>
+            Welcome {userName} 
+            </span>
+    </div>
+    <div className={ConnectorsCSS["connector-heading"]}>
+        <span>Database & OS Connectors</span>
+    </div>
+        <Sidebar username={userName}
+        email = {email}
+        />
         <div className={ConnectorsCSS.wrapper}>
             <Card
             Img = {sqlImg}

@@ -18,8 +18,10 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .logo{
-    width: 120px;
+    width: 250px;
+    height:40px;
     cursor: pointer;
 }
 .navbar ul li{

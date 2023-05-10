@@ -5,12 +5,20 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
 
 function DataArchiving() {
+    const [showLog, setLogs] = useState(null);
+    const handleShow = () => setShow(true);
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
     const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
     useEffect(()=>{
         const userName = localStorage.getItem('currentUserName');
         setUserName(userName);
+        const email = localStorage.getItem('currentUserEmail');
+        setEmail(email);
     },[])
     const [selected, setSelected] = React.useState("");
 
@@ -18,9 +26,10 @@ function DataArchiving() {
         setSelected(event.target.value);
       };
 
-    const mongoDbLogs = ['mongo1','mongo2'];
-    const sqlLogs = ['Quit', 'Commandtype','Error'];
-    const oracleLogs = ['oracle1','oracle2'];
+    const mongoDbLogs = ['All', 'mongo1','mongo2'];
+    const sqlLogs = ['All', 'Quit', 'Connect','Query','Execute'];
+    const oracleLogs = ['All', 'startup','shutdown', 'process start'];
+    const windows = ['All','Information','Warning','Error'];
     let type = null;
     let options = null;
 
@@ -46,13 +55,17 @@ function DataArchiving() {
         const url = 'http://172.104.174.187:4000/api/get/arch-logs';
         axios.post(url, payLoad)
         .then(function(response){
+            const logsData = response.data.log_data;
+            setLogs(logsData)
             console.log(response)
         })
     }
     return (
         <>
             <div className="main-container">
-                <Sidebar username={userName} />
+            <Sidebar username={userName}
+            email = {email}
+            />
                 <div className="data-source-heading">
                     <span>Data Source Logs</span>
                 </div>
@@ -66,8 +79,24 @@ function DataArchiving() {
                         <option value="4">Linux</option>
                         <option value="windows">Windows</option>
                     </Form.Select>
-                    <Button variant="warning" onClick={fetchData}>Fetch</Button>{' '}
+                    <Button variant="warning" onClick={()=> {handleShow(); fetchData()}}>Fetch</Button>{' '}
                 </div>
+                <Modal show={show} onHide={handleClose}>
+                        {/* <div className={MainCss.header}> */}
+                        <Modal.Header closeButton>
+                            <Modal.Title>Fetched logs</Modal.Title>
+                        </Modal.Header>
+                        {/* </div> */}
+                        <Modal.Body>
+                             <div className="logs">
+                                 {showLog && 
+                                 <div>
+                                     {showLog}
+                                 </div>
+                                 }
+                             </div>
+                        </Modal.Body>
+                    </Modal>
 
                 <div className="data-source-heading">
                     <span>Command Type</span>

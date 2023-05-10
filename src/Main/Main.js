@@ -9,6 +9,7 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Loader from '../Loader/Loader';
+import logoImg from '../assets/logo.png';
 
 const Main = () => {
     const [isLoading, setLoading] = useState(false);
@@ -65,15 +66,16 @@ const Main = () => {
             else if (formik.values.userName === "admin" && formik.values.passWord === "admin") {
                 console.log("admin");
                 successToast();
-                navigate("/dashboard");  
+                navigate("/connectors");  
             }
             else if (response.data) {
                 if(response.data.check){
                     localStorage.setItem('currentUserName',formik?.values.userName);
                     localStorage.setItem('currentUserId',response.data.userId);
+                    localStorage.setItem('currentUserEmail',response.data.email);
                 }
                 successToast();
-                navigate("/dashboard");  
+                navigate("/connectors");  
             }
             else if (response.data === false) {
                 ErrorToast("No data found!");
@@ -87,7 +89,10 @@ const Main = () => {
     return (
         <div className={MainCss.banner}>
             <div className={MainCss.navbar}>
-                <span>DRAW STACK</span>
+                {/* <span>DRAW STACK</span> */}
+                <span onClick={() => navigate('/')}>
+                <img src={logoImg} className={MainCss.logo}/>
+                </span>
                 <ul>
                     <li>
                         <a href="#">Details</a>

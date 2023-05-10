@@ -38,17 +38,24 @@
 .sidebar small{
     color: #ccc;
 }
-.brand{
+/* .brand{
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
     color: #fff;
     font-weight: 600;
+} */
+
+.logo{
+    width: 200px;
+    cursor: pointer;
 }
-.brand span {
-    margin-right: 6px;
-}
+
+/* .brand span {
+    margin-right: 3px;
+    width:200px;
+} */
 .menu-heading{
     padding: 1em;
     margin: 2em 0 0.5em 0;
@@ -112,7 +119,7 @@ hr{
     font-size: 0.7em;
 }
 .profile{
-    padding: 1.7em 1em 3.7em 1em;
+    padding: 1.7em 1em 0.5em 1em;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -128,6 +135,13 @@ hr{
 .profile h5{
     margin: 0 0 0.2em 0;
 }
+
+.email{
+    margin-bottom: 65px;
+    font-size: 13px;
+    margin-left: 16px;
+}
+
 .notifications li a span, .tools li a span {
     margin-right: 10px;
 }

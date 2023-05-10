@@ -1,0 +1,35 @@
+.main-container{
+    font-family: Helvetica, sans-serif;
+    background: url('../assets/net-bg.jpg') no-repeat center fixed;
+    background-size: cover ;
+    padding: 20px;
+    height: 100vh;
+}
+
+.recent-act-heading{
+    display: flex;
+    margin-top: 55px;
+}
+.recent-act-heading span{
+    color:#fff;
+    font-size: 55px;
+    border-bottom: 3px solid #009688;
+    justify-content:start ;
+    margin-left: 230px;
+}
+
+.table{
+    text-align: center;
+}
+
+.users-table {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 250px;
+    height: 500px;
+    width:1100px;
+    overflow-y: auto;
+    justify-content: center;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 40px #000000;
+    }

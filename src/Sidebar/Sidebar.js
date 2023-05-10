@@ -2,6 +2,7 @@ import React from 'react';
 import SidebarCSS from './Sidebar.module.css';
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import logoImg from '../assets/logo.png';
 
 const Sidebar = (props)=> {
     const navigate = useNavigate();
@@ -11,12 +12,13 @@ return(
 <div  className={SidebarCSS["main-container"]}>
 <nav className={SidebarCSS.sidebar}>
 <div>
-    <a href="/dashboard" className={SidebarCSS.brand}>
-        <span className="material-icons-outlined" >
+    <span className={SidebarCSS.brand} onClick={() => navigate('/connectors')}>
+        <img src={logoImg} className={SidebarCSS.logo}/>
+        {/* <span className="material-icons-outlined" >
             layers
         </span>
-        <span>DRAW STACK</span>
-    </a>
+        <span>DRAW STACK</span> */}
+    </span>
         <small className={SidebarCSS["menu-heading"]}>
             <span>User Tools</span>
         </small>
@@ -48,9 +50,12 @@ return(
             </li>
         </ul>
         <hr/>
+        <small className={SidebarCSS["menu-heading"]}>
+            <span>User Details</span>
+        </small>
         <ul className={SidebarCSS.notifications}>
             <li>
-                <a href="#">
+                <a href="#" onClick={() => navigate("/users-history")}>
                     <div>
                         <span className="material-icons-outlined">
                             person
@@ -64,11 +69,11 @@ return(
         <hr />
         <div className={SidebarCSS.profile}>
         <h5>{props.username}</h5>
-                {/* <small>johndoe@gmail.com</small> */}
             <span className="material-icons-outlined">
                 verified_user
             </span>
         </div>
+        <div className={SidebarCSS.email}>{props.email}</div>
         <Button className={SidebarCSS["logout-btn"]} variant="primary" onClick={() => navigate("/")}>
             End Session
         </Button>

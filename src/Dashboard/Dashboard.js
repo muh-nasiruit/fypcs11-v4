@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react';
 
 const Dashboard = () => {
     const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
     useEffect(()=>{
         const userName = localStorage.getItem('currentUserName');
         setUserName(userName);
+        const email = localStorage.getItem('currentUserEmail');
+        setEmail(email);
     },[])
     return (
     <>
@@ -16,7 +19,9 @@ const Dashboard = () => {
         <div className={DashboardCSS["heading-user-name"]}>
            <span className={DashboardCSS["springy-text"]}>Welcome {userName} </span>
         </div>
-        <Sidebar username={userName}/>
+        <Sidebar username={userName}
+            email = {email}
+        />
     </div>
     </>
     )

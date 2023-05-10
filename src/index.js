@@ -11,6 +11,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import DataArchiving from './Data-Archiving/DataArchiving';
+import UsersHistory from  './Users-History/UsersHistory';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/data-archiving",
     element: <DataArchiving/>,
+  },
+  {
+    path: "/users-history",
+    element: <UsersHistory/>,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
