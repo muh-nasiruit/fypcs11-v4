@@ -134,6 +134,7 @@ hr{
 
 .logout-btn{
     margin-top:-20px;
+    border-radius: 24px;
 }
 
 @media screen and (max-width:800px){

@@ -104,7 +104,10 @@ section .contentBx .formBx h2{
     margin-top: 2px;
     color: red;
     font-size: 12px;
-    margin-left: 43px;
+    padding-left: 16px;
+}
+.signup-form{
+    width: 400px;
 }
 .back-to-main{
     display: flex;

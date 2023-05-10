@@ -46,35 +46,8 @@ return(
                     <span>Threat Analysis</span>
                 </a>
             </li>
-            {/* <li>
-                <a href="#">
-                    <span className="material-icons-outlined">
-                        account_balance_wallet
-                    </span>
-                    <span>Payouts</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span className="material-icons-outlined">
-                        article
-                    </span>
-                    <span>Statements</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span className="material-icons-outlined">
-                        settings
-                    </span>
-                    <span>Settings</span>
-                </a>
-            </li> */}
         </ul>
         <hr/>
-        {/* <small className={SidebarCSS["menu-heading"]}>
-            <span>Insights</span>
-        </small> */}
         <ul className={SidebarCSS.notifications}>
             <li>
                 <a href="#">
@@ -87,34 +60,9 @@ return(
                     {/* <span className={SidebarCSS.badge}>18</span> */}
                 </a>
             </li>
-            {/* <li>
-                <a href="#">
-                    <div>
-                        <span className="material-icons-outlined">
-                            notifications
-                        </span>
-                        <span>Notifications</span>
-                    </div>
-                    <span className={SidebarCSS.badge}>7</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div>
-                        <span className="material-icons-outlined">
-                            textsms
-                        </span>
-                        <span>Comments</span>
-                    </div>
-                    <span className={SidebarCSS.badge}>24</span>
-                </a>
-            </li> */}
         </ul>
         <hr />
         <div className={SidebarCSS.profile}>
-            {/* <a href="#">
-                <img src="../Coffee Shop/Images/coffee10-removebg-preview.png" alt=""/>
-            </a> */}
         <h5>{props.username}</h5>
                 {/* <small>johndoe@gmail.com</small> */}
             <span className="material-icons-outlined">
