@@ -16,11 +16,11 @@ function UsersHistory() {
     const [email, setEmail] = useState('');
     
     
-    const userName = localStorage.getItem('currentUserName');
-    const email = localStorage.getItem('currentUserEmail');
+    const uName = localStorage.getItem('currentUserName');
+    const uMail = localStorage.getItem('currentUserEmail');
     const userId_string = localStorage.getItem('currentUserId');
-    setUserName(userName);
-    setEmail(email);
+    setUserName(uName);
+    setEmail(uMail);
     
     const user_id = JSON.parse(userId_string);
     const payLoad = {
