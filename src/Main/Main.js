@@ -1,6 +1,6 @@
 import MainCss from '../Main/Main.module.css';
 import { useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { useFormik } from 'formik';
@@ -8,10 +8,18 @@ import { SignupValidationSchema } from "../Validations/Validations";
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import Loader from '../Loader/Loader';
 
 const Main = () => {
- 
+    const [isLoading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
+    useEffect(()=>{
+       const signUpStatus = localStorage.getItem('SignupStatus');
+       if(signUpStatus){
+        handleShow();
+        localStorage.removeItem('SignupStatus')
+       }
+    },[])
     let navigate = useNavigate();
     const signUpBtn = () => {
         let signUpPath = `signUp`
@@ -39,6 +47,7 @@ const Main = () => {
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
     const login = () => {
+        setLoading(true);
         const myUrl = 'http://172.104.174.187:4000/api/login';    
         // const  myUrl = 'http://localhost:4000/api/login'
         console.log("values: ", formik?.values);
@@ -47,7 +56,8 @@ const Main = () => {
             loginPass: formik?.values.passWord
         }
         axios.post(myUrl, data)
-        .then(function (response) {       
+        .then(function (response) {    
+            setLoading(false);
             console.log(response.data);
             if (formik.values.userName === "" || formik.values.passWord ==="") {
                 ErrorToast("Please enter Username and Password");
@@ -59,7 +69,8 @@ const Main = () => {
             }
             else if (response.data) {
                 if(response.data.check){
-                    localStorage.setItem('currentUserName',formik?.values.userName)
+                    localStorage.setItem('currentUserName',formik?.values.userName);
+                    localStorage.setItem('currentUserId',response.data.userId);
                 }
                 successToast();
                 navigate("/dashboard");  
@@ -80,9 +91,6 @@ const Main = () => {
                 <ul>
                     <li>
                         <a href="#">Details</a>
-                    </li>
-                    <li>
-                        <a href="#">Faq</a>
                     </li>
                 </ul>
             </div>
@@ -133,7 +141,8 @@ const Main = () => {
                             <span className={MainCss["error-message"]} >{formik.errors.passWord}</span>
                         ) : null}
                                     <div className={MainCss["login-btn"]}>
-                                    <input type="button" name="" value="Login" onClick={() => {login()}}/>
+                                    <input type="button" name="" value="Login" onClick={() => {login()}}
+                                    />
                                     </div>
                                     <div className={MainCss.tosignup}>
                                     <a href="/signup"> Don't have an account? </a>
@@ -141,6 +150,7 @@ const Main = () => {
                                 </Form.Group>
                             </Form>
                         </Modal.Body>
+                            {isLoading && <Loader/> }
                     </Modal>
                     <div className={MainCss["our-card"]}>
                         <h2>Sign Up</h2>
