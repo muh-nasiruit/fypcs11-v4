@@ -76,7 +76,7 @@ function DataArchiving() {
                         <option value="mongodb">MongoDB</option>
                         <option value="oracle">Oracle</option>
                         <hr/>
-                        <option value="4">Linux</option>
+                        <option value="linux">Linux</option>
                         <option value="windows">Windows</option>
                     </Form.Select>
                     <Button variant="warning" onClick={()=> {handleShow(); fetchData()}}>Fetch</Button>{' '}
