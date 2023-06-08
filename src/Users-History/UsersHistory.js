@@ -1,46 +1,17 @@
 import React from 'react'
 import '../Users-History/UsersHistory.css'
 import Sidebar from '../Sidebar/Sidebar';
-import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table'
-import axios from 'axios';
-import Loader from '../Loader/Loader';
 import { useNavigate } from "react-router-dom";
 
 function UsersHistory() {
     const navigate = useNavigate();
-    const [isLoading, setLoading] = useState(true);
-    const [res, setRes] = useState([])
     
     const userName = localStorage.getItem('currentUserName');
     const email = localStorage.getItem('currentUserEmail');
-    const userId_string = localStorage.getItem('currentUserId');
-    
-    const user_id = JSON.parse(userId_string);
-    const payLoad = {
-        id : user_id
-    }
+    const userHist_str = localStorage.getItem('currentUserHistory');
+    const user_hist = JSON.parse(userHist_str)
 
-    const runAPI = () => {
-        const myUrl = 'http://172.104.174.187:4000/api/get-history';
-        // const myUrl = 'http://localhost:4054/api/linux-logs';
-        axios.post(myUrl, payLoad)
-            .then((response) => {
-                setLoading(false);
-                setRes(response.data)
-                console.log(response.data)
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    };
-    
-    useEffect(() => {
-        return () => {
-            runAPI();
-        }
-
-     }); // Only run once, when the component mounts
     
   return (
     <div className="main-container">
@@ -66,7 +37,7 @@ function UsersHistory() {
         </thead>
         <tbody id='tbody-out'>
         {
-                    res.map((item, index) => (
+                    user_hist.map((item, index) => (
                         <tr key={index}>
                             <th scope='row'> {item.username}</th>
                             <td> {item.con_type} </td>
@@ -75,7 +46,6 @@ function UsersHistory() {
                         ))
                     } 
         </tbody>
-        {isLoading && <Loader/>}
         </Table>
         </div>
     </div>

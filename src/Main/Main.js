@@ -41,6 +41,22 @@ const Main = () => {
         validationSchema: SignupValidationSchema
     })
 
+    const runAPI = (user_id) => {
+        const myUrl = 'http://172.104.174.187:4000/api/get-history';
+        const payLoad = {
+            id : user_id
+        }
+        axios.post(myUrl, payLoad)
+            .then((response) => {
+                const user_hist = JSON.stringify(response.data)
+                localStorage.setItem('currentUserHistory',user_hist);
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    };
+
     const signInBtn = () => {
         let signInPath = `login`
         navigate(signInPath)
@@ -73,11 +89,12 @@ const Main = () => {
                     localStorage.setItem('currentUserName',formik?.values.userName);
                     localStorage.setItem('currentUserId',response.data.userId);
                     localStorage.setItem('currentUserEmail',response.data.email);
+                    runAPI(response.data.userId);
+                    successToast();
+                    navigate("/connectors");  
                 }
-                successToast();
-                navigate("/connectors");  
             }
-            else if (response.data === false) {
+            else if (response.data.check === false) {
                 ErrorToast("No data found!");
             }
             else {
