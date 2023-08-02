@@ -6,8 +6,10 @@ import "./ThreatAnalysis.css";
 import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from "recharts";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
 import axios from "axios";
+import Loader from '../Loader/Loader';
 
 const ThreatAnalysis = () => {
+  const [isLoading, setLoading] = useState(false);
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [res, setRes] = useState(null);
@@ -31,9 +33,10 @@ const ThreatAnalysis = () => {
     const payLoad = {
       check: failedLoginAttempts,
     };
-
+    setLoading(true);
     const url = "http://172.104.174.187:4000/linux-analysis";
     axios.post(url, payLoad).then(function (response) {
+        setLoading(false);
       if (payLoad.check === 0) {
         setFlag1(true);
         setFlag2(false);
@@ -100,12 +103,13 @@ const ThreatAnalysis = () => {
             Visualize
           </Button>{" "}
         </div>
+        {isLoading && <Loader/> }
         {res && flag1 && (
           <div className="output">
             <div className="data-source1-heading">
         <span>Pie Chart</span>
         </div>
-      
+        
             {/* <p>Pie chart showing detection of # of Failed of Log Attempts with day-wise</p> */}
             <ResponsiveContainer width="75%" height={400}   className="rechartss">
               <PieChart>

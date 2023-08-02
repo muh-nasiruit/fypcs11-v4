@@ -5,9 +5,11 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table'
+import Loader from '../Loader/Loader';
 import "./ThreatDetection.css";
 
 function ThreatDetection() {
+  const [isLoading, setLoading] = useState(false);
   const [res, setRes] = useState(null);
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,10 +34,11 @@ const changeSelectOptionHandler = (event) => {
   const payLoad = {
       check: failedLoginAttempts
   } 
- 
+  setLoading(true);
   const url = 'http://172.104.174.187:4000/linux-fetch';
   axios.post(url, payLoad)
   .then(function(response){
+    setLoading(false);
       console.log(response)
       if(payLoad.check == 0){
         setFlag(false)
@@ -47,7 +50,7 @@ const changeSelectOptionHandler = (event) => {
 }
 
   return (
-    <div className="main-container">
+    <div className="main-container2">
       <Sidebar username={userName} email={email} />
       {/* new  */}
       <div className="data-source-heading">
@@ -61,8 +64,11 @@ const changeSelectOptionHandler = (event) => {
         </Form.Select>
         <Button variant="warning" onClick={()=> {fetchData()}}>Fetch</Button>{" "}
       </div>
+      
       {/* 0 table */}
+      {isLoading && <Loader/> }
       {res && !flag &&
+
       <div id="my-table" className="users-table">
         <Table className="table">
           <thead className="table-dark">

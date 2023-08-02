@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import Loader from '../Loader/Loader';
 
 import {
     BarChart,
@@ -20,6 +21,7 @@ import '../Data-Archiving/DataArchiving.css'
 
 
 function DataArchiving() {
+    const [isLoading, setLoading] = useState(false);
     const [showLog, setLogs] = useState(null);
     const [res, setRes] = useState(null);
     const handleShow = () => setShow(true);
@@ -69,9 +71,11 @@ function DataArchiving() {
             user_id: user_id,
             data_src: selected
         } 
+        // setLoading(true);
         const url = 'http://172.104.174.187:4000/api/get/arch-logs';
         axios.post(url, payLoad)
         .then(function(response){
+            // setLoading(false);
             const logsData = response.data.log_data;
             setLogs(logsData)
             console.log(response)
@@ -83,9 +87,11 @@ function DataArchiving() {
             // log_type: "information"
             // options:options
         } 
+        setLoading(true);
         const url2 = 'http://172.104.174.187:4000/mysql-visual';
         axios.post(url2,payLoad)
         .then(function(res){
+            setLoading(false);
            console.log(res.data.vu)  
            const sdata = res.data.vu.sort((a, b) => new Date(a.date) - new Date(b.date));
            setRes(sdata)
@@ -141,6 +147,7 @@ function DataArchiving() {
                     </Form.Select>
                     <Button variant="warning" onClick={()=> {analyzeData()}}>Analyze</Button>{' '}
                 </div>
+                {isLoading && <Loader/> }
             
             {/* BAR GRAPH */}
             {res &&

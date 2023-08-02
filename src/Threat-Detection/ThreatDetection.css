@@ -1,10 +1,10 @@
-.main-container{
+/* .main-container2{
     font-family: Helvetica, sans-serif;
     background: url('../assets/net-bg.jpg') no-repeat center fixed;
     background-size: cover ;
     padding: 20px;
     height: 100vh;
-}
+} */
 
 .threat-heading{
     display: flex;
@@ -18,7 +18,7 @@
     margin-left: 230px;
 }
 
-.main-container{
+.main-container2{
     font-family: Helvetica, sans-serif;
     background: url('../assets/net-bg.jpg') no-repeat center fixed;
     background-size: cover ;
