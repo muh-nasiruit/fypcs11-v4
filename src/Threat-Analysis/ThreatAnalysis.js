@@ -78,10 +78,10 @@ const ThreatAnalysis = () => {
     <div className="main-container">
       <Sidebar username={userName} email={email} />
       {/* new  */}
-      <div className="data-source-heading">
+      <div className="data-source1-heading">
         <span>Threat Analysis</span>
       </div>
-      <div className="data-source">
+      <div className="data-source1">
         <div className="select-box">
           <Form.Select
             aria-label="Default select example"
@@ -102,7 +102,7 @@ const ThreatAnalysis = () => {
         </div>
         {res && flag1 && (
           <div className="output">
-            <div className="data-source-heading">
+            <div className="data-source1-heading">
         <span>Pie Chart</span>
         </div>
       
@@ -140,7 +140,7 @@ const ThreatAnalysis = () => {
           
             <div className="output">
             {/* <h2>Failed Login Attempts Line Chart</h2> */}
-            <div className="data-source-heading">
+            <div className="data-source1-heading">
         <span>Failed Login Attempts Line Chart</span>
         </div>
             <ResponsiveContainer width="75%" height={400}>

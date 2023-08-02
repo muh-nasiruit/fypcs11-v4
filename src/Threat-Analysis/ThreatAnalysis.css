@@ -25,25 +25,25 @@
     padding: 20px;
     height: 100vh;
 }
-.data-source{
+.data-source1{
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-top: 30px;
 }
-.data-source .form-select{
+.data-source1 .form-select{
     width: 33% !important;
 }
-.data-source Button{
+.data-source1 Button{
     width: 98px !important;
     margin: 1px 10px !important;
 }
-.data-source-heading{
+.data-source1-heading{
     display: flex;
     justify-content: center;
     margin-top: 55px;
 }
-.data-source-heading span{
+.data-source1-heading span{
     color:#fff;
     font-size: 55px;
     border-bottom: 3px solid #009688;

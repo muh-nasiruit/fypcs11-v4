@@ -1,5 +1,4 @@
 import React from 'react';
-import '../Data-Archiving/DataArchiving.css'
 import Sidebar from '../Sidebar/Sidebar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -16,8 +15,9 @@ import {
     Tooltip,
     Legend,
     ResponsiveContainer
-  } from "recharts";
-  
+} from "recharts";
+import '../Data-Archiving/DataArchiving.css'
+
 
 function DataArchiving() {
     const [showLog, setLogs] = useState(null);
@@ -28,8 +28,8 @@ function DataArchiving() {
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [countLog, setCountLog] = useState([]);
-
-
+    
+    
     useEffect(()=>{
         const userName = localStorage.getItem('currentUserName');
         setUserName(userName);
@@ -37,12 +37,12 @@ function DataArchiving() {
         setEmail(email);
     },[])
     const [selected, setSelected] = React.useState("");
-
+    
     const changeSelectOptionHandler = (event) => {
         setSelected(event.target.value);
         console.log(event.target.value)
-      };
-
+    };
+    
     const mongoDbLogs = ['All', 'mongo1','mongo2'];
     const sqlLogs = ['All', 'Quit', 'Connect','Query','Execute'];
     const oracleLogs = ['All', 'startup','shutdown', 'process start'];
@@ -52,19 +52,19 @@ function DataArchiving() {
 
     if (selected === "MySQL") {
         type = sqlLogs;
-      } else if (selected === "MongoDB") {
+    } else if (selected === "MongoDB") {
         type = mongoDbLogs;
-      } else if (selected === "Oracle") {
+    } else if (selected === "Oracle") {
         type = oracleLogs;
-      }
-
-      if (type) {
+    }
+    
+    if (type) {
         options = type.map((el) => <option key={el}>{el}</option>);
         console.log(options)
-      }
-      const fetchData = () => {
-          const userId_string = localStorage.getItem('currentUserId');
-          const user_id = JSON.parse(userId_string);
+    }
+    const fetchData = () => {
+        const userId_string = localStorage.getItem('currentUserId');
+        const user_id = JSON.parse(userId_string);
         const payLoad = {
             user_id: user_id,
             data_src: selected
@@ -95,14 +95,14 @@ function DataArchiving() {
     }
     return (
         <>
-            <div className="main-container">
+            <div className="main-con">
             <Sidebar username={userName}
             email = {email}
             />
-                <div className="data-source-heading">
+                <div className="data-source-head">
                     <span>Data Source Logs</span>
                 </div>
-                <div className="data-source">
+                <div className="data-src">
                     <Form.Select aria-label="Default select example" onChange={changeSelectOptionHandler}>
                         <option>Select Data Source</option>
                         <option value="MySQL">MySQL</option>
@@ -134,7 +134,7 @@ function DataArchiving() {
                 <div className="data-source-heading">
                     <span>Command Type</span>
                 </div>
-                <div className="data-source">
+                <div className="data-src">
                     <Form.Select aria-label="Default select example">
                         { options}
                         
