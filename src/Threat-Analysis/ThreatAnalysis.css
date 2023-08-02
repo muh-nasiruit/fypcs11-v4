@@ -28,6 +28,7 @@
 .data-source{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-top: 30px;
 }
 .data-source .form-select{
@@ -46,4 +47,11 @@
     color:#fff;
     font-size: 55px;
     border-bottom: 3px solid #009688;
+}
+.select-box{
+    display: flex;
+    justify-content: center;
+}
+.rechartss{
+    margin-left: 385px !important;
 }

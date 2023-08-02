@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import DataArchiving from './Data-Archiving/DataArchiving';
 import UsersHistory from  './Users-History/UsersHistory';
+import ThreatDetection from  './Threat-Detection/ThreatDetection';
 import ThreatAnalysis from  './Threat-Analysis/ThreatAnalysis';
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/users-history",
     element: <UsersHistory/>,
+  },
+  {
+    path: "/threat-detection",
+    element: <ThreatDetection/>,
   },
   {
     path: "/threat-analysis",

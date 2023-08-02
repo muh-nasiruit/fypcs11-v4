@@ -41,6 +41,14 @@ return(
                 </a>
             </li>
             <li>
+                <a href="#" onClick={() => navigate("/threat-detection")}>
+                    <span className="material-icons-outlined">
+                        folder
+                    </span>
+                    <span>Threat Detection</span>
+                </a>
+            </li>
+            <li>
                 <a href="#" onClick={() => navigate("/threat-analysis")}>
                     <span className="material-icons-outlined">
                         analytics
