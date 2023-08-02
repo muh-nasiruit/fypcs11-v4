@@ -10,6 +10,7 @@
     "formik": "^2.2.9",
     "material-icons": "^1.13.6",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^18.2.0",

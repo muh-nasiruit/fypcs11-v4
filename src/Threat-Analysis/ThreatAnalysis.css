@@ -17,3 +17,33 @@
     justify-content:start ;
     margin-left: 230px;
 }
+
+.main-container{
+    font-family: Helvetica, sans-serif;
+    background: url('../assets/net-bg.jpg') no-repeat center fixed;
+    background-size: cover ;
+    padding: 20px;
+    height: 100vh;
+}
+.data-source{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.data-source .form-select{
+    width: 33% !important;
+}
+.data-source Button{
+    width: 98px !important;
+    margin: 1px 10px !important;
+}
+.data-source-heading{
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+}
+.data-source-heading span{
+    color:#fff;
+    font-size: 55px;
+    border-bottom: 3px solid #009688;
+}

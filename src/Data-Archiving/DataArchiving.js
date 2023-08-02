@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import Chart from 'react-apexcharts'
 
 function DataArchiving() {
     const [showLog, setLogs] = useState(null);
@@ -14,6 +15,9 @@ function DataArchiving() {
     const handleClose = () => setShow(false);
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
+    const [countLog, setCountLog] = useState(null);
+
+
     useEffect(()=>{
         const userName = localStorage.getItem('currentUserName');
         setUserName(userName);
@@ -59,6 +63,21 @@ function DataArchiving() {
             setLogs(logsData)
             console.log(response)
         })
+    }
+    const analyzeData = () => {
+        const payLoad = {
+            // log_data: "Level: information Level: information information Level: information Level: information Level: information",
+            // log_type: "information"
+            options:options
+        } 
+        const url2 = 'http://172.104.174.187:4000/api/get/log-term';
+        axios.post(url2,payLoad)
+        .then(function(res){
+            console.log(res.data)
+            const resCount = res.data.analysis
+            setCountLog(resCount)   
+        })
+
     }
     return (
         <>
@@ -106,7 +125,18 @@ function DataArchiving() {
                         { options}
                         
                     </Form.Select>
-                    <Button variant="warning">Analyze</Button>{' '}
+                    <Button variant="warning" onClick={()=> {analyzeData()}}>Analyze</Button>{' '}
+                </div>
+                <div className="chart-for-analyzing">
+                <Chart
+                    type="pie"
+                    width={1349}
+                    height={300}
+                    series = {[50, countLog.count]}
+                    options={{
+                    labels:['totalwords','count',countLog.word]
+                    }}>
+                </Chart>
                 </div>
             </div>
         </>
